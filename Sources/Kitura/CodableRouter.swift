@@ -478,8 +478,8 @@ extension Router {
                 let query: Q = try QueryDecoder(dictionary: request.queryParameters).decode(Q.self)
                 handler(query, resultHandler)
             } catch {
-                // Http 422 error
-                response.status(.unprocessableEntity)
+                // Http 400 error
+                response.status(.badRequest)
                 next()
             }
         }
@@ -582,8 +582,8 @@ extension Router {
                 let query: Q = try QueryDecoder(dictionary: request.queryParameters).decode(Q.self)
                 handler(query, resultHandler)
             } catch {
-                // Http 422 error
-                response.status(.unprocessableEntity)
+                // Http 400 error
+                response.status(.badRequest)
                 next()
             }
         }
